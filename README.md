@@ -1,73 +1,129 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# BeeBea API
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## What is BeeBea
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+BeeBea is an experiment in genetic algorithm. There are a lot of pieces to the experiment. The basic idea is to have a LED array similar to a 64 x 64 individually controlled led matrix and send specific colors to the matrix. These colors will represent a genome of the led matrix. Each matrix will have 8 specific genes in its chromosome. The 64 led matrix will be broken down into 16 4 x 4 squares in order to make the math much smaller. Once the led has been assigned its chromosome, the display will show the individual colors. The next step is to be able to use a mobile device to capture these colors for the led matrix. The result would be able to identify the led matrix based on the colors that are captured. Each led matrix will have a unique genome. There is the ability for the genome to breed with other genome and produce a unique genome based on the sire and matron.
 
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+This API is the data and operations of the BeeBea system.
 
 ## Installation
 
 ```bash
-$ npm install
+
+npm install
+
 ```
 
 ## Running the app
 
 ```bash
+
 # development
+
 $ npm run start
 
+  
+
 # watch mode
+
 $ npm run start:dev
 
+  
+
 # production mode
+
 $ npm run start:prod
+
 ```
 
 ## Test
 
 ```bash
+
 # unit tests
+
 $ npm run test
 
+  
+
+# test with watcher
+
+$ npm run test:watch
+
+  
+
 # e2e tests
+
 $ npm run test:e2e
 
+  
+
 # test coverage
+
 $ npm run test:cov
+
 ```
 
-## Support
+## Running the the docker database
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+### You need to run the migrations if you want the database to have the schema. You can regenerate the migrations, if the schema migrations are not available, by running (while the database is running) the migrations generate script below. This command will also create an instance of pgadmin for you. [PGAdmin Localhost](http://127.0.0.1:8080)
 
-## Stay in touch
+```bash
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+# start the database
 
-## License
+$ npm run env:dbUp
 
-Nest is [MIT licensed](LICENSE).
+  
+
+# stop the database
+
+$ npm run env:dbStop
+
+  
+
+# delete the database
+
+$ npm run env:dbDown
+
+```
+
+## Migrations
+
+```bash
+
+# Generate the migrations based on existing entities
+
+$ npm run migration:generate -- src/migrations/{MIGRATION_NAME}
+
+
+# run the migration
+
+$ npm run migration:run
+
+```
+
+## Seeding
+
+### Seeding works the same way as migrations. In fact it uses migrations to generate and load the seeding files. Change the implemented interface to the ISeedingInterface when the file is generated
+
+```typescript
+ export class seedSEED_NAME1659141818147 implements ISeedingInterface {}
+```
+
+```bash
+
+# create the seeding. You need to implement the ISeedingInterface
+
+$ npm run seed:create -- src/seeds/{SEED_NAME}
+
+
+# run the seeding
+
+$ npm run seed:run
+
+```
+
+Other Documents:
+[Hardware Setup](/docs/HARDWARE.md)
+[Genetic Design](/docs/GENETICDESIGN.md)

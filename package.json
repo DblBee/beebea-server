@@ -18,21 +18,46 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json --runInBand",
+    "typeorm:cli": "node -r tsconfig-paths/register -r ts-node/register ./node_modules/typeorm/cli.js",
+    "migration:generate": "npm run typeorm:cli -- migration:generate -d src/database/migration-datasource.ts",
+    "migration:create": "npm run typeorm:cli -- migration:create",
+    "migration:run": "npm run typeorm:cli -- migration:run -d src/database/migration-datasource.ts",
+    "migration:revert": "npm run typeorm:cli -- migration:revert -d src/database/migration-datasource.ts",
+    "seed:create": "npm run typeorm:cli -- migration:create",
+    "seed:run": "npm run typeorm:cli -- migration:run -d src/database/seed-datasource.ts",
+    "seed:revert": "npm run typeorm:cli -- migration:revert -d src/database/seed-datasource.ts",
+    "env:up": "docker-compose up",
+    "env:down": "docker-compose down",
+    "env:dbUp": "docker-compose up dev-db pgadmin -d",
+    "env:dbStop": "docker-compose stop",
+    "env:dbDown": "docker-compose down",
+    "env:refresh": "npm run env:dbDown && npm run env:dbUp && rm -rf src/database/migrations && npm run migration:generate -- src/database/migrations/inital && npm run migration:run && npm run seed:run"
   },
   "dependencies": {
+    "@hapi/joi": "^17.1.1",
     "@nestjs/common": "^9.0.0",
+    "@nestjs/config": "^2.2.0",
     "@nestjs/core": "^9.0.0",
     "@nestjs/platform-express": "^9.0.0",
+    "@nestjs/typeorm": "^9.0.1",
+    "dotenv": "^16.0.1",
+    "nestjs-pino": "^3.1.1",
+    "pg": "^8.7.3",
+    "pino-http": "^8.2.0",
+    "pino-pretty": "^9.0.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
-    "rxjs": "^7.2.0"
+    "rxjs": "^7.2.0",
+    "typeorm": "^0.3.7"
   },
   "devDependencies": {
+    "@faker-js/faker": "^7.4.0",
     "@nestjs/cli": "^9.0.0",
     "@nestjs/schematics": "^9.0.0",
     "@nestjs/testing": "^9.0.0",
     "@types/express": "^4.17.13",
+    "@types/hapi__joi": "^17.1.8",
     "@types/jest": "28.1.4",
     "@types/node": "^16.0.0",
     "@types/supertest": "^2.0.11",
@@ -57,13 +82,30 @@
       "json",
       "ts"
     ],
+    "moduleNameMapper": {
+      "^src/(.*)$": "<rootDir>/$1"
+    },
+    "testPathIgnorePatterns": [
+      "../test",
+      "<rootDir>/testing-utility/",
+      "<rootDir>/database/migrations",
+      "<rootDir>/database/seeds"
+    ],
+    "modulePathIgnorePatterns": [
+      "../test",
+      "<rootDir>/testing-utility/",
+      "<rootDir>/database/migrations",
+      "<rootDir>/database/seeds"
+    ],
     "rootDir": "src",
     "testRegex": ".*\\.spec\\.ts$",
     "transform": {
       "^.+\\.(t|j)s$": "ts-jest"
     },
     "collectCoverageFrom": [
-      "**/*.(t|j)s"
+      "**/*.(t|j)s",
+      "!dist/*",
+      "!**/*.module.(t|j)s"
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
