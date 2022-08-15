@@ -5,7 +5,7 @@ import { SnakeNamingStrategy } from './strategies/snake-naming.strategy';
 
 export const migrationDataSourceOptions: DataSourceOptions = {
   type: 'postgres',
-  host: process.env.DATABASE_HOST || 'localhost',
+  host: process.env.DATABASE_HOST || '127.0.0.1',
   port: process.env.DATABASE_PORT ? +process.env.DATABASE_PORT : 5432,
   username: process.env.DATABASE_USER,
   password: process.env.DATABASE_PASSWORD,
@@ -22,6 +22,4 @@ export const migrationDataSourceOptions: DataSourceOptions = {
   namingStrategy: new SnakeNamingStrategy(),
 };
 
-export const MigrationDataSource: DataSource = new DataSource(
-  migrationDataSourceOptions,
-);
+export const MigrationDataSource: DataSource = new DataSource(migrationDataSourceOptions);

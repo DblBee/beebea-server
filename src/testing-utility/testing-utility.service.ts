@@ -3,9 +3,7 @@ import { MockRepository } from './mock-repository';
 
 @Injectable()
 export class TestingUtilityService {
-  static createMockRepository<T = any, K = any>(
-    returnMock?: K,
-  ): MockRepository<T> {
+  static createMockRepository<T = any, K = any>(returnMock?: K): MockRepository<T> {
     return {
       find: jest.fn(),
       findAndCount: jest.fn(),

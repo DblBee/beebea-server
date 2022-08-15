@@ -11,43 +11,26 @@ describe('Snake Naming Strategy', () => {
 
     expect(snakeNamingStrategy).toBeDefined();
 
-    expect(snakeNamingStrategy.tableName('SomeClassName', null)).toEqual(
-      'some_class_name',
+    expect(snakeNamingStrategy.tableName('SomeClassName')).toEqual('some_class_name');
+
+    expect(snakeNamingStrategy.columnName('SomeColumnName')).toEqual('some_column_name');
+
+    expect(snakeNamingStrategy.relationName('SomeRationalName')).toEqual('some_rational_name');
+
+    expect(snakeNamingStrategy.joinColumnName('SomeRelationName', 'SomeRefColumnName')).toEqual(
+      'some_relation_name_some_ref_column_name',
     );
 
-    expect(snakeNamingStrategy.columnName('SomeColumnName', null, [])).toEqual(
-      'some_column_name',
+    expect(snakeNamingStrategy.joinTableName('TableOne', 'TableTwo', 'PropOne')).toEqual(
+      'table_one_prop_one_table_two',
     );
 
-    expect(snakeNamingStrategy.relationName('SomeRationalName')).toEqual(
-      'some_rational_name',
+    expect(snakeNamingStrategy.joinTableColumnName('TableOne', 'ColumnOne')).toEqual(
+      'table_one_column_one',
     );
 
     expect(
-      snakeNamingStrategy.joinColumnName(
-        'SomeRelationName',
-        'SomeRefColumnName',
-      ),
-    ).toEqual('some_relation_name_some_ref_column_name');
-
-    expect(
-      snakeNamingStrategy.joinTableName(
-        'TableOne',
-        'TableTwo',
-        'PropOne',
-        null,
-      ),
-    ).toEqual('table_one_prop_one_table_two');
-
-    expect(
-      snakeNamingStrategy.joinTableColumnName('TableOne', 'ColumnOne'),
-    ).toEqual('table_one_column_one');
-
-    expect(
-      snakeNamingStrategy.classTableInheritanceParentColumnName(
-        'TableOne',
-        'PropOne',
-      ),
+      snakeNamingStrategy.classTableInheritanceParentColumnName('TableOne', 'PropOne'),
     ).toEqual('table_one_prop_one');
   });
 });

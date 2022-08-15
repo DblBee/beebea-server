@@ -1,8 +1,5 @@
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import {
-  TypeOrmModuleAsyncOptions,
-  TypeOrmModuleOptions,
-} from '@nestjs/typeorm';
+import { TypeOrmModuleAsyncOptions, TypeOrmModuleOptions } from '@nestjs/typeorm';
 
 import { SnakeNamingStrategy } from './strategies/snake-naming.strategy';
 
@@ -10,7 +7,7 @@ export default class TypeOrmConfig {
   static getOrmConfig(configService: ConfigService): TypeOrmModuleOptions {
     return {
       type: 'postgres',
-      host: configService.get<string>('DATABASE_HOST') || 'localhost',
+      host: configService.get<string>('DATABASE_HOST') || '127.0.0.1',
       port: configService.get<number>('DATABASE_PORT') || 5432,
       username: configService.get<string>('DATABASE_USER'),
       password: configService.get<string>('DATABASE_PASSWORD'),
@@ -32,8 +29,7 @@ export default class TypeOrmConfig {
 
 export const TypeOrmConfigAsync: TypeOrmModuleAsyncOptions = {
   imports: [ConfigModule],
-  useFactory: async (
-    configService: ConfigService,
-  ): Promise<TypeOrmModuleOptions> => TypeOrmConfig.getOrmConfig(configService),
+  useFactory: async (configService: ConfigService): Promise<TypeOrmModuleOptions> =>
+    TypeOrmConfig.getOrmConfig(configService),
   inject: [ConfigService],
 };
