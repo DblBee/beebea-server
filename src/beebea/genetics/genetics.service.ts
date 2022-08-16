@@ -73,18 +73,18 @@ export class GeneticsService {
     this._logger.info(`processDna(${hashHex}) ${dnaDto}`);
 
     // return the hash and the value array DnaDto
-    return {
-      hex: hashHex,
-      valueArray: bit240BitArray,
-    };
+    const dto = new DnaDto();
+    dto.hex = hashHex;
+    dto.valueArray = bit240BitArray;
+    return dto;
   }
 
   generateCreepyName(name: string, options?: CreepifyOptions): CreepyNameDto {
     const encodedName = Creepify.encode(name, options);
     const htmlName = Creepify.getHTML(encodedName);
-    return {
-      encodedName,
-      htmlName,
-    };
+    const dto = new CreepyNameDto();
+    dto.htmlName = htmlName;
+    dto.encodedName = encodedName;
+    return dto;
   }
 }

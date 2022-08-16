@@ -2,6 +2,8 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { randomUUID } from 'crypto';
 import { LoggerModule } from 'nestjs-pino';
 import * as he from 'he';
+import { plainToInstance } from 'class-transformer';
+import { validate } from 'class-validator';
 import { GeneticsService } from './genetics.service';
 import { DnaDto } from './dtos/dna.dto';
 import { CreepyNameDto } from './dtos/creepy-name.dto';
@@ -44,11 +46,16 @@ describe('GeneticsService', () => {
 
   describe('generateDna', () => {
     describe('process dna', () => {
-      it('returns dna dto with the hex and bit array populated', () => {
+      it('returns dna dto with the hex and bit array populated', async () => {
         const dnaStr = service.generateDna(randomUUID());
         expect(dnaStr).toBeDefined();
 
-        const dnaDto = service.processDna(dnaStr.substring(2));
+        const dnaDtoData = service.processDna(dnaStr.substring(2));
+
+        const dnaDto = plainToInstance(DnaDto, dnaDtoData);
+        const errors = await validate(dnaDto);
+        expect(errors.length).toEqual(0);
+
         expect(dnaDto).toBeDefined();
         expect(dnaDto).toBeInstanceOf(DnaDto);
         expect(dnaDto.hex).toEqual(dnaStr.substring(2));
@@ -59,14 +66,18 @@ describe('GeneticsService', () => {
   });
 
   describe('generateCreepyName', () => {
-    it('returns creepy name dto with encoded and html values', () => {
-      const creepyNameDto = service.generateCreepyName('BeeBea BeeBeaBee BeaBee BeaBeeBea', {
+    it('returns creepy name dto with encoded and html values', async () => {
+      const creepyNameDtoData = service.generateCreepyName('BeeBea BeeBeaBee BeaBee BeaBeeBea', {
         top: true,
         middle: true,
         bottom: true,
         maxHeight: 3,
         randomization: 30,
       });
+
+      const creepyNameDto = plainToInstance(CreepyNameDto, creepyNameDtoData);
+      const errors = await validate(creepyNameDto);
+      expect(errors.length).toEqual(0);
 
       expect(creepyNameDto).toBeDefined();
       expect(creepyNameDto).toBeInstanceOf(CreepyNameDto);
