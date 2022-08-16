@@ -1,6 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { InjectPinoLogger, PinoLogger } from 'nestjs-pino';
 import { Keccak } from 'sha3';
+import { Creepify } from './creepy-generator';
+import { CreepyNameDto } from './dtos/creepy-name.dto';
+
 import { DnaDto } from './dtos/dna.dto';
 
 @Injectable()
@@ -37,12 +40,11 @@ export class GeneticsService {
   }
 
   processDna(hashHex: string): DnaDto {
-    this._logger.info(`processDna(${hashHex})`);
-
     // convert the hex to a buffer
     const hashBinaryBuffer = Buffer.from(hashHex, 'hex');
 
-    // convert the buffer into a binary string e.g 000110000001100000011000000110000001100000011000
+    // convert the buffer into a binary string
+    // e.g 000110000001100000011000000110000001100000011000
     const binaryStr = this._convertBufferToBinaryString(hashBinaryBuffer);
 
     // cut out 16 bits from the string to make it a 240 bit array
@@ -69,12 +71,23 @@ export class GeneticsService {
       valueArray: bit240BitArray,
     };
 
-    this._logger.info(`processDna(${hashHex}) ${JSON.stringify(dnaDto, null, 2)}`);
+    this._logger.info(`processDna(${hashHex}) ${dnaDto}`);
 
-    // return the hash and the value array
+    // return the hash and the value array DnaDto
     return {
       hex: hashHex,
       valueArray: bit240BitArray,
+    };
+  }
+
+  generateCreepyName(name: string): CreepyNameDto {
+    const encodedName = Creepify.encode(name);
+    const htmlName = Creepify.getHTML(encodedName);
+    console.log('encodedName', encodedName);
+    console.log('htmlName', htmlName);
+    return {
+      encodedName,
+      htmlName,
     };
   }
 }
