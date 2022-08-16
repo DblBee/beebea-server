@@ -16,7 +16,6 @@ export class BeebeaService {
   ) {}
 
   async createGenZeroBeeBea(name: string): Promise<BeeBea> {
-    let beeBea: BeeBea;
     try {
       // generate the dna string
       const dna = this._geneticService.generateDna(randomUUID());
@@ -46,7 +45,5 @@ export class BeebeaService {
 
       throw new InternalServerErrorException(error);
     }
-
-    return beeBea;
   }
 }

@@ -1,7 +1,10 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { randomUUID } from 'crypto';
 import { LoggerModule } from 'nestjs-pino';
+import * as he from 'he';
 import { GeneticsService } from './genetics.service';
+import { DnaDto } from './dtos/dna.dto';
+import { CreepyNameDto } from './dtos/creepy-name.dto';
 
 describe('GeneticsService', () => {
   let service: GeneticsService;
@@ -47,6 +50,7 @@ describe('GeneticsService', () => {
 
         const dnaDto = service.processDna(dnaStr.substring(2));
         expect(dnaDto).toBeDefined();
+        expect(dnaDto).toBeInstanceOf(DnaDto);
         expect(dnaDto.hex).toEqual(dnaStr.substring(2));
         expect(dnaDto.valueArray).toBeDefined();
         expect(dnaDto.valueArray.length).toEqual(48);
@@ -56,15 +60,21 @@ describe('GeneticsService', () => {
 
   describe('generateCreepyName', () => {
     it('returns creepy name dto with encoded and html values', () => {
-      const creepyNameDto = service.generateCreepyName('DblBee');
-      console.log(creepyNameDto.encodedName);
-      console.log(creepyNameDto.htmlName);
-
-      // TODO: check html decoded value against encoded value
+      const creepyNameDto = service.generateCreepyName('BeeBea BeeBeaBee BeaBee BeaBeeBea', {
+        top: true,
+        middle: true,
+        bottom: true,
+        maxHeight: 3,
+        randomization: 30,
+      });
 
       expect(creepyNameDto).toBeDefined();
+      expect(creepyNameDto).toBeInstanceOf(CreepyNameDto);
       expect(creepyNameDto.encodedName).toBeDefined();
       expect(creepyNameDto.htmlName).toBeDefined();
+
+      const deodedHtml = he.decode(creepyNameDto.htmlName);
+      expect(creepyNameDto.encodedName).toEqual(deodedHtml);
     });
   });
 });

@@ -1,9 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectPinoLogger, PinoLogger } from 'nestjs-pino';
 import { Keccak } from 'sha3';
-import { Creepify } from './creepy-generator';
+import { Creepify, CreepifyOptions } from './creepy-generator';
 import { CreepyNameDto } from './dtos/creepy-name.dto';
-
 import { DnaDto } from './dtos/dna.dto';
 
 @Injectable()
@@ -80,11 +79,9 @@ export class GeneticsService {
     };
   }
 
-  generateCreepyName(name: string): CreepyNameDto {
-    const encodedName = Creepify.encode(name);
+  generateCreepyName(name: string, options?: CreepifyOptions): CreepyNameDto {
+    const encodedName = Creepify.encode(name, options);
     const htmlName = Creepify.getHTML(encodedName);
-    console.log('encodedName', encodedName);
-    console.log('htmlName', htmlName);
     return {
       encodedName,
       htmlName,

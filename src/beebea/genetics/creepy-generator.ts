@@ -114,12 +114,12 @@ export class Creepify {
       top: true,
       middle: false,
       bottom: true,
-      maxHeight: 2,
-      randomization: 21,
+      maxHeight: 3,
+      randomization: 60,
     },
   ): string {
     let result = '';
-    console.log('options', options);
+
     for (let i = 0; i < input.length; i++) {
       let currentChar = input.charAt(i);
       if (options.middle) {
@@ -128,19 +128,22 @@ export class Creepify {
 
       if (options.top) {
         const diacriticsTopLength = diacriticsTop.length - 1;
-        const howManyTops =
+        let howManyTops =
           options.maxHeight - Math.random() * ((options.randomization / 100) * options.maxHeight);
-        for (let i = 0; i < howManyTops; i++) {
+        while (howManyTops > 0) {
           currentChar += diacriticsTop[Math.floor(Math.random() * diacriticsTopLength)];
+          howManyTops--;
         }
       }
 
       if (options.bottom) {
         const diacriticsBottomLength = diacriticsBottom.length - 1;
-        const howManyBottoms =
+        let howManyBottoms =
           options.maxHeight - Math.random() * ((options.randomization / 100) * options.maxHeight);
-        for (let j = 0; j < howManyBottoms; j++) {
+
+        while (howManyBottoms > 0) {
           currentChar += diacriticsBottom[Math.floor(Math.random() * diacriticsBottomLength)];
+          howManyBottoms--;
         }
       }
 

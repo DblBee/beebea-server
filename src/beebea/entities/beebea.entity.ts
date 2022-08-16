@@ -31,7 +31,7 @@ export class BeeBea {
   @Column({ type: 'varchar', nullable: false, length: 128 })
   creepyName!: string;
 
-  @Column({ type: 'varchar', nullable: false, length: 255 })
+  @Column({ type: 'text', nullable: false })
   htmlCreepyName!: string;
 
   @Column({
