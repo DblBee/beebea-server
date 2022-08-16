@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 import { PrettyOptions } from 'pino-pretty';
 
 export const pinoHttpOptions = {

@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { LoggerModule } from 'nestjs-pino';
 import { pinoHttpOptions } from './pino-http.config';
+
 @Module({
   imports: [
     LoggerModule.forRootAsync({
@@ -11,9 +12,7 @@ import { pinoHttpOptions } from './pino-http.config';
         return {
           pinoHttp: {
             ...pinoHttpOptions,
-            level: configSerivce.get<string>('LOG_LEVEL')
-              ? configSerivce.get<string>('LOG_LEVEL')
-              : 'info',
+            level: configSerivce.get<string>('LOG_LEVEL', 'trace'),
           },
         };
       },
