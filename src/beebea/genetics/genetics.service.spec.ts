@@ -42,9 +42,6 @@ describe('GeneticsService', () => {
         }
       });
     });
-  });
-
-  describe('generateDna', () => {
     describe('process dna', () => {
       it('returns dna dto with the hex and bit array populated', async () => {
         const dnaStr = service.generateDna(randomUUID());

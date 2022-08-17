@@ -9,6 +9,9 @@ import {
   OneToMany,
   Entity,
 } from 'typeorm';
+import { AnimationTrait } from '../genetics/entities/animation-trait.entity';
+import { ColorTrait } from '../genetics/entities/color-trait.entity';
+import { ShapeTrait } from '../genetics/entities/shape-trait.entity';
 import { BeeBeaChild } from './beebea-child.entity';
 
 @Entity({ name: 'beebea' })
@@ -47,11 +50,41 @@ export class BeeBea {
   @Column({ type: 'char', length: 66, unique: true, nullable: false })
   dna!: string;
 
-  @Column({ type: 'varchar', nullable: true, length: 512 })
-  imageURL?: string;
+  @ManyToOne(() => ColorTrait)
+  colorTrait1!: ColorTrait;
 
-  @Column({ type: 'varchar', nullable: true, length: 512 })
-  imageURLCDN?: string;
+  @ManyToOne(() => ColorTrait)
+  colorTrait2!: ColorTrait;
+
+  @ManyToOne(() => ColorTrait)
+  colorTrait3!: ColorTrait;
+
+  @ManyToOne(() => ColorTrait)
+  colorTrait4!: ColorTrait;
+
+  @ManyToOne(() => ColorTrait)
+  colorTrait5!: ColorTrait;
+
+  @ManyToOne(() => ColorTrait)
+  colorTrait6!: ColorTrait;
+
+  @ManyToOne(() => ColorTrait)
+  colorTrait7!: ColorTrait;
+
+  @ManyToOne(() => ColorTrait)
+  colorTrait8!: ColorTrait;
+
+  @ManyToOne(() => ShapeTrait)
+  shapeTrait1!: ShapeTrait;
+
+  @ManyToOne(() => ShapeTrait)
+  shapeTrait2!: ShapeTrait;
+
+  @ManyToOne(() => AnimationTrait)
+  animation1!: AnimationTrait;
+
+  @ManyToOne(() => AnimationTrait)
+  hiddenTrait!: AnimationTrait;
 
   @Column({ type: 'text', nullable: true })
   bio?: string;
