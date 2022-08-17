@@ -3,112 +3,96 @@
     "assignmentNumber": 0,
     "name": "Umbrella Weather",
     "elementType": "water",
-    "traitType": "animation",
     "animation": "RAIN"
   },
   {
     "assignmentNumber": 1,
     "name": "Hang Ten",
     "elementType": "water",
-    "traitType": "animation",
     "animation": "WAVES"
   },
   {
     "assignmentNumber": 2,
     "name": "Coastal Erosion",
     "elementType": "water",
-    "traitType": "animation",
     "animation": "FLOOD"
   },
   {
     "assignmentNumber": 3,
     "name": "Abstract Water",
     "elementType": "water",
-    "traitType": "animation",
     "animation": "ABSTRACT_WATER"
   },
   {
     "assignmentNumber": 0,
     "name": "Round Round Go",
     "elementType": "earth",
-    "traitType": "animation",
     "animation": "SPINNING_GLOBE"
   },
   {
     "assignmentNumber": 1,
     "name": "Walks On The Beach",
     "elementType": "earth",
-    "traitType": "animation",
     "animation": "SUNSET"
   },
   {
     "assignmentNumber": 2,
     "name": "Best Part Of Waking Up",
     "elementType": "earth",
-    "traitType": "animation",
     "animation": "SUNRISE"
   },
   {
     "assignmentNumber": 3,
     "name": "Abstract Earth",
     "elementType": "earth",
-    "traitType": "animation",
     "animation": "ABSTRACT_EARTH"
   },
   {
     "assignmentNumber": 0,
     "name": "The Roof The Roof",
     "elementType": "fire",
-    "traitType": "animation",
     "animation": "FLAMES"
   },
   {
     "assignmentNumber": 1,
     "name": "Beach Sand",
     "elementType": "fire",
-    "traitType": "animation",
     "animation": "LAVA"
   },
   {
     "assignmentNumber": 2,
     "name": "WeeWooWeeWoo",
     "elementType": "fire",
-    "traitType": "animation",
     "animation": "CHERRY_LIGHT"
   },
   {
     "assignmentNumber": 3,
     "name": "Abstract Fire",
     "elementType": "fire",
-    "traitType": "animation",
     "animation": "ABSTRACT_FIRE"
   },
   {
     "assignmentNumber": 0,
     "name": "Screaming Stratus",
     "elementType": "wind",
-    "traitType": "animation",
     "animation": "MOVING_CLOUD"
   },
   {
     "assignmentNumber": 1,
     "name": "Thor's Calling Card",
     "elementType": "wind",
-    "traitType": "animation",
     "animation": "FLASHING_LIGHTNING"
   },
   {
     "assignmentNumber": 2,
     "name": "Swamp Cooler",
     "elementType": "wind",
-    "traitType": "animation",
     "animation": "FAN"
   },
   {
     "assignmentNumber": 3,
     "name": "Abstract Wind",
     "elementType": "wind",
-    "traitType": "animation",
     "animation": "ABSTRACT_WIND"
   }
 ]

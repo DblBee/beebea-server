@@ -3,7 +3,6 @@
     "assignmentNumber": 0,
     "name": "Squishy Water Socks",
     "elementType": "water",
-    "traitType": "color",
     "hex": "#2ce689",
     "rgb": "rgb(44,230,137,255)"
   },
@@ -11,7 +10,6 @@
     "assignmentNumber": 1,
     "name": "Gambit Prince",
     "elementType": "water",
-    "traitType": "color",
     "hex": "#d4fbe8",
     "rgb": "rgb(212,251,232,255)"
   },
@@ -19,7 +17,6 @@
     "assignmentNumber": 2,
     "name": "Minor Frostbite",
     "elementType": "water",
-    "traitType": "color",
     "hex": "#e1f8ff",
     "rgb": "rgb(225,248,255,255)"
   },
@@ -27,7 +24,6 @@
     "assignmentNumber": 3,
     "name": "Sour Shark",
     "elementType": "water",
-    "traitType": "color",
     "hex": "#c7ddff",
     "rgb": "rgb(199,221,255,255)"
   },
@@ -35,7 +31,6 @@
     "assignmentNumber": 4,
     "name": "Crisp Carbine",
     "elementType": "water",
-    "traitType": "color",
     "hex": "#5c9af7",
     "rgb": "rgb(92,154,247,255)"
   },
@@ -43,7 +38,6 @@
     "assignmentNumber": 5,
     "name": "Acrobat Blitz",
     "elementType": "water",
-    "traitType": "color",
     "hex": "#77abfa",
     "rgb": "rgb(119,171,250,255)"
   },
@@ -51,7 +45,6 @@
     "assignmentNumber": 6,
     "name": "Blue Dragon",
     "elementType": "water",
-    "traitType": "color",
     "hex": "#0e60e6",
     "rgb": "rgb(14,96,230,255)"
   },
@@ -59,7 +52,6 @@
     "assignmentNumber": 7,
     "name": "First Titan",
     "elementType": "water",
-    "traitType": "color",
     "hex": "#3986fa",
     "rgb": "rgb(57,134,250,255)"
   },
@@ -67,7 +59,6 @@
     "assignmentNumber": 8,
     "name": "Salty Lightning",
     "elementType": "water",
-    "traitType": "color",
     "hex": "#07bff7",
     "rgb": "rgb(7,191,247,255)"
   },
@@ -75,7 +66,6 @@
     "assignmentNumber": 9,
     "name": "Unicorn Baroness",
     "elementType": "water",
-    "traitType": "color",
     "hex": "#0499ba",
     "rgb": "rgb(4,153,186,255)"
   },
@@ -83,7 +73,6 @@
     "assignmentNumber": 10,
     "name": "Odd Enigma",
     "elementType": "water",
-    "traitType": "color",
     "hex": "#00f7ff",
     "rgb": "rgb(247,255,255)"
   },
@@ -91,7 +80,6 @@
     "assignmentNumber": 11,
     "name": "Electric Wave",
     "elementType": "water",
-    "traitType": "color",
     "hex": "#37dbe6",
     "rgb": "rgb(55,219,230,255)"
   },
@@ -99,7 +87,6 @@
     "assignmentNumber": 12,
     "name": "Fuzzy Serpent",
     "elementType": "water",
-    "traitType": "color",
     "hex": "#d6f016",
     "rgb": "rgb(214,240,22,255)"
   },
@@ -107,7 +94,6 @@
     "assignmentNumber": 13,
     "name": "Honest Salesman",
     "elementType": "water",
-    "traitType": "color",
     "hex": "#d4ff00",
     "rgb": "rgb(212,255,0,255)"
   },
@@ -115,7 +101,6 @@
     "assignmentNumber": 14,
     "name": "Shiny Bandit",
     "elementType": "water",
-    "traitType": "color",
     "hex": "#7038f2",
     "rgb": "rgb(112,56,242,255)"
   },
@@ -123,7 +108,6 @@
     "assignmentNumber": 15,
     "name": "Water Polo",
     "elementType": "water",
-    "traitType": "color",
     "hex": "#00ee33",
     "rgb": "rgb(0,238,51,255)"
   },
@@ -131,7 +115,6 @@
     "assignmentNumber": 0,
     "name": "Gracious Behemoth",
     "elementType": "fire",
-    "traitType": "color",
     "hex": "#fa0101",
     "rgb": "rgb(250,1,1,255)"
   },
@@ -139,7 +122,6 @@
     "assignmentNumber": 1,
     "name": "Loud Devil",
     "elementType": "fire",
-    "traitType": "color",
     "hex": "#ba0000",
     "rgb": "rgb(186,0,0,255)"
   },
@@ -147,7 +129,6 @@
     "assignmentNumber": 2,
     "name": "Fake Balboa",
     "elementType": "fire",
-    "traitType": "color",
     "hex": "#de6464",
     "rgb": "rgb(222,100,100,255)"
   },
@@ -155,7 +136,6 @@
     "assignmentNumber": 3,
     "name": "Incredible Sunshine",
     "elementType": "fire",
-    "traitType": "color",
     "hex": "#fff700",
     "rgb": "rgb(255,247,0,255)"
   },
@@ -163,7 +143,6 @@
     "assignmentNumber": 4,
     "name": "Bronze Unicorn",
     "elementType": "fire",
-    "traitType": "color",
     "hex": "#ff9830",
     "rgb": "rgb(255,152,48,255)"
   },
@@ -171,7 +150,6 @@
     "assignmentNumber": 5,
     "name": "Daring Supernova",
     "elementType": "fire",
-    "traitType": "color",
     "hex": "#fa7e00",
     "rgb": "rgb(250,126,0,255)"
   },
@@ -179,7 +157,6 @@
     "assignmentNumber": 6,
     "name": "Hazel Jumper",
     "elementType": "fire",
-    "traitType": "color",
     "hex": "#fbb54b",
     "rgb": "rgb(251,181,75,255)"
   },
@@ -187,7 +164,6 @@
     "assignmentNumber": 7,
     "name": "Plastic Clown",
     "elementType": "fire",
-    "traitType": "color",
     "hex": "#ed0795",
     "rgb": "rgb(237,7,149,255)"
   },
@@ -195,7 +171,6 @@
     "assignmentNumber": 8,
     "name": "Salty Pawn",
     "elementType": "fire",
-    "traitType": "color",
     "hex": "#fc68c3",
     "rgb": "rgb(252,104,195,255)"
   },
@@ -203,7 +178,6 @@
     "assignmentNumber": 9,
     "name": "Imaginary Panther",
     "elementType": "fire",
-    "traitType": "color",
     "hex": "#e03de0",
     "rgb": "rgb(224,61,224,255)"
   },
@@ -211,7 +185,6 @@
     "assignmentNumber": 10,
     "name": "Selfish Flamingo",
     "elementType": "fire",
-    "traitType": "color",
     "hex": "#ff38ff",
     "rgb": "rgb(255,56,255,255)"
   },
@@ -219,7 +192,6 @@
     "assignmentNumber": 11,
     "name": "Dessert Walker",
     "elementType": "fire",
-    "traitType": "color",
     "hex": "#ebc3b9",
     "rgb": "rgb(235,195,185,255)"
   },
@@ -227,7 +199,6 @@
     "assignmentNumber": 12,
     "name": "Distant Whisper",
     "elementType": "fire",
-    "traitType": "color",
     "hex": "#fff5ff",
     "rgb": "rgb(255,245,255,255)"
   },
@@ -235,7 +206,6 @@
     "assignmentNumber": 13,
     "name": "Boring Grandpa",
     "elementType": "fire",
-    "traitType": "color",
     "hex": "#fff7db",
     "rgb": "rgb(255,247,219,255)"
   },
@@ -243,7 +213,6 @@
     "assignmentNumber": 14,
     "name": "Bad Bat",
     "elementType": "fire",
-    "traitType": "color",
     "hex": "#6800fa",
     "rgb": "rgb(104,0,250,255)"
   },
@@ -251,7 +220,6 @@
     "assignmentNumber": 15,
     "name": "Gurple",
     "elementType": "fire",
-    "traitType": "color",
     "hex": "#ba00cc",
     "rgb": "rgb(186,0,204,255)"
   },
@@ -259,7 +227,6 @@
     "assignmentNumber": 0,
     "name": "Glorious Girl Scout",
     "elementType": "earth",
-    "traitType": "color",
     "hex": "#00fa15",
     "rgb": "rgb(0,250,21,255)"
   },
@@ -267,7 +234,6 @@
     "assignmentNumber": 1,
     "name": "Wicked Mantis",
     "elementType": "earth",
-    "traitType": "color",
     "hex": "#26bd32",
     "rgb": "rgb(38,189,50,255)"
   },
@@ -275,7 +241,6 @@
     "assignmentNumber": 2,
     "name": "Virtual Cayman",
     "elementType": "earth",
-    "traitType": "color",
     "hex": "#28e038",
     "rgb": "rgb(40,224,56,255)"
   },
@@ -283,7 +248,6 @@
     "assignmentNumber": 3,
     "name": "Cut Grass",
     "elementType": "earth",
-    "traitType": "color",
     "hex": "#e8e658",
     "rgb": "rgb(232,230,88,255)"
   },
@@ -291,7 +255,6 @@
     "assignmentNumber": 4,
     "name": "Squash Soup",
     "elementType": "earth",
-    "traitType": "color",
     "hex": "#d9d216",
     "rgb": "rgb(217,210,22,255)"
   },
@@ -299,7 +262,6 @@
     "assignmentNumber": 5,
     "name": "Green Clay",
     "elementType": "earth",
-    "traitType": "color",
     "hex": "#c4c104",
     "rgb": "rgb(196,193,4,255)"
   },
@@ -307,7 +269,6 @@
     "assignmentNumber": 6,
     "name": "Lonely Maple",
     "elementType": "earth",
-    "traitType": "color",
     "hex": "#eb8500",
     "rgb": "rgb(235,133,0,255)"
   },
@@ -315,7 +276,6 @@
     "assignmentNumber": 7,
     "name": "Icky Eagle",
     "elementType": "earth",
-    "traitType": "color",
     "hex": "#ffb34f",
     "rgb": "rgb(255,179,79,255)"
   },
@@ -323,7 +283,6 @@
     "assignmentNumber": 8,
     "name": "Golden Arrow",
     "elementType": "earth",
-    "traitType": "color",
     "hex": "#f08e0e",
     "rgb": "rgb(240,142,14,255)"
   },
@@ -331,7 +290,6 @@
     "assignmentNumber": 9,
     "name": "Foxtail Twilight",
     "elementType": "earth",
-    "traitType": "color",
     "hex": "#fcbd6a",
     "rgb": "rgb(252,189,106,255)"
   },
@@ -339,7 +297,6 @@
     "assignmentNumber": 10,
     "name": "Sick Bumblebee",
     "elementType": "earth",
-    "traitType": "color",
     "hex": "#ffc06e",
     "rgb": "rgb(255,192,110,255)"
   },
@@ -347,7 +304,6 @@
     "assignmentNumber": 11,
     "name": "Late Liberty",
     "elementType": "earth",
-    "traitType": "color",
     "hex": "#c8ffc4",
     "rgb": "rgb(200,255,196,255)"
   },
@@ -355,7 +311,6 @@
     "assignmentNumber": 12,
     "name": "Tired Traveler",
     "elementType": "earth",
-    "traitType": "color",
     "hex": "#fff800",
     "rgb": "rgb(255,248,0,255)"
   },
@@ -363,7 +318,6 @@
     "assignmentNumber": 13,
     "name": "Hospital Walls",
     "elementType": "earth",
-    "traitType": "color",
     "hex": "#ffffc4",
     "rgb": "rgb(255,255,196,255)"
   },
@@ -371,7 +325,6 @@
     "assignmentNumber": 14,
     "name": "Urban Halo",
     "elementType": "earth",
-    "traitType": "color",
     "hex": "#ccad43",
     "rgb": "rgb(204,173,67,255)"
   },
@@ -379,15 +332,13 @@
     "assignmentNumber": 15,
     "name": "Golf Grass",
     "elementType": "earth",
-    "traitType": "color",
     "hex": "#009932",
     "rgb": "rgb(0,153,50,255)"
   },
   {
     "assignmentNumber": 0,
-    "name": "Slippery Waterslide",
+    "name": "Slippery Water Slide",
     "elementType": "wind",
-    "traitType": "color",
     "hex": "#579bfa",
     "rgb": "rgb(87,155,250,255)"
   },
@@ -395,7 +346,6 @@
     "assignmentNumber": 1,
     "name": "Gentle Luna",
     "elementType": "wind",
-    "traitType": "color",
     "hex": "#5089d9",
     "rgb": "rgb(80,137,217,255)"
   },
@@ -403,7 +353,6 @@
     "assignmentNumber": 2,
     "name": "Crystal Lancer",
     "elementType": "wind",
-    "traitType": "color",
     "hex": "#cff3fd",
     "rgb": "rgb(207,243,253,255)"
   },
@@ -411,7 +360,6 @@
     "assignmentNumber": 3,
     "name": "Jolly Eyes",
     "elementType": "wind",
-    "traitType": "color",
     "hex": "#83e3fd",
     "rgb": "rgb(131,227,253,255)"
   },
@@ -419,7 +367,6 @@
     "assignmentNumber": 4,
     "name": "Eighties Party",
     "elementType": "wind",
-    "traitType": "color",
     "hex": "#55ffff",
     "rgb": "rgb(85,255,255,255)"
   },
@@ -427,7 +374,6 @@
     "assignmentNumber": 5,
     "name": "Basic Dragonfly",
     "elementType": "wind",
-    "traitType": "color",
     "hex": "#ae63e0",
     "rgb": "rgb(174,99,224,255)"
   },
@@ -435,7 +381,6 @@
     "assignmentNumber": 6,
     "name": "Glorious Enigma",
     "elementType": "wind",
-    "traitType": "color",
     "hex": "#9a71ff",
     "rgb": "rgb(154,113,255,255)"
   },
@@ -443,7 +388,6 @@
     "assignmentNumber": 7,
     "name": "Fickle Willow",
     "elementType": "wind",
-    "traitType": "color",
     "hex": "#e1b5ff",
     "rgb": "rgb(225,181,255,255)"
   },
@@ -451,7 +395,6 @@
     "assignmentNumber": 8,
     "name": "Snowy Phantom",
     "elementType": "wind",
-    "traitType": "color",
     "hex": "#d1cffa",
     "rgb": "rgb(209,207,250,255)"
   },
@@ -459,7 +402,6 @@
     "assignmentNumber": 9,
     "name": "Muted Rose",
     "elementType": "wind",
-    "traitType": "color",
     "hex": "#ff74e2",
     "rgb": "rgb(255,116,226,255)"
   },
@@ -467,7 +409,6 @@
     "assignmentNumber": 10,
     "name": "Dizzy Rainbow",
     "elementType": "wind",
-    "traitType": "color",
     "hex": "#eb15c0",
     "rgb": "rgb(235,21,192,255)"
   },
@@ -475,7 +416,6 @@
     "assignmentNumber": 11,
     "name": "Cuddly Starburst",
     "elementType": "wind",
-    "traitType": "color",
     "hex": "#c4069b",
     "rgb": "rgb(196,6,155,255)"
   },
@@ -483,15 +423,13 @@
     "assignmentNumber": 12,
     "name": "Cali Shirt",
     "elementType": "wind",
-    "traitType": "color",
     "hex": "#fcf7b6",
     "rgb": "rgb(252,247,182,255)"
   },
   {
     "assignmentNumber": 13,
-    "name": "Murky Avalange",
+    "name": "Murky Avalanche",
     "elementType": "wind",
-    "traitType": "color",
     "hex": "#ffdf8e",
     "rgb": "rgb(255,223,142,255)"
   },
@@ -499,7 +437,6 @@
     "assignmentNumber": 14,
     "name": "Dust Tower",
     "elementType": "wind",
-    "traitType": "color",
     "hex": "#ffcfaf",
     "rgb": "rgb(255,207,175,255)"
   },
@@ -507,7 +444,6 @@
     "assignmentNumber": 15,
     "name": "Winter Night Cloud",
     "elementType": "wind",
-    "traitType": "color",
     "hex": "#aaccee",
     "rgb": "rgb(170,204,238,255)"
   }

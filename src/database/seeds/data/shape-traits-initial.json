@@ -3,224 +3,192 @@
     "assignmentNumber": 0,
     "name": "Splendid Wave",
     "elementType": "water",
-    "traitType": "shape",
     "shape": "WAVE"
   },
   {
     "assignmentNumber": 1,
     "name": "Nautical Flag",
     "elementType": "water",
-    "traitType": "shape",
     "shape": "HORZ_TWO_TONE"
   },
   {
     "assignmentNumber": 2,
     "name": "Clean Machine",
     "elementType": "water",
-    "traitType": "shape",
     "shape": "BUBBLES"
   },
   {
     "assignmentNumber": 3,
     "name": "Summer Storm",
     "elementType": "water",
-    "traitType": "shape",
     "shape": "RAIN"
   },
   {
     "assignmentNumber": 4,
     "name": "Row Row",
     "elementType": "water",
-    "traitType": "shape",
     "shape": "BOAT"
   },
   {
     "assignmentNumber": 5,
     "name": "Smarty Splash",
     "elementType": "water",
-    "traitType": "shape",
     "shape": "SPLASH"
   },
   {
     "assignmentNumber": 6,
     "name": "Abstract Water",
     "elementType": "water",
-    "traitType": "shape",
     "shape": "ABSTRACT_WATER"
   },
   {
     "assignmentNumber": 7,
     "name": "Four Squares",
     "elementType": "water",
-    "traitType": "shape",
     "shape": "FOUR_SQUARES"
   },
   {
     "assignmentNumber": 0,
     "name": "Grunge Arrow",
     "elementType": "earth",
-    "traitType": "shape",
     "shape": "ARROW_NW"
   },
   {
     "assignmentNumber": 1,
     "name": "Gnarly Arrow",
     "elementType": "earth",
-    "traitType": "shape",
     "shape": "ARROW_SW"
   },
   {
     "assignmentNumber": 2,
     "name": "Wicked Arrow",
     "elementType": "earth",
-    "traitType": "shape",
     "shape": "ARROW_NE"
   },
   {
     "assignmentNumber": 3,
     "name": "Sweet Tea Arrow",
     "elementType": "earth",
-    "traitType": "shape",
     "shape": "ARROW_SE"
   },
   {
     "assignmentNumber": 4,
     "name": "Elder Tree",
     "elementType": "earth",
-    "traitType": "shape",
     "shape": "TREE"
   },
   {
     "assignmentNumber": 5,
     "name": "Splish Splash",
     "elementType": "earth",
-    "traitType": "shape",
     "shape": "SMASH"
   },
   {
     "assignmentNumber": 6,
     "name": "Abstract Earth",
     "elementType": "earth",
-    "traitType": "shape",
     "shape": "ABSTRACT_EARTH"
   },
   {
     "assignmentNumber": 7,
     "name": "Four Circles",
     "elementType": "earth",
-    "traitType": "shape",
     "shape": "FOUR_CIRCLES"
   },
   {
     "assignmentNumber": 0,
     "name": "Flashy Flame",
     "elementType": "fire",
-    "traitType": "shape",
     "shape": "FLAME"
   },
   {
     "assignmentNumber": 1,
     "name": "Jolly Roger",
     "elementType": "fire",
-    "traitType": "shape",
     "shape": "CAMP_FIRE"
   },
   {
     "assignmentNumber": 2,
     "name": "Hot Over There",
     "elementType": "fire",
-    "traitType": "shape",
     "shape": "TORCH_NW"
   },
   {
     "assignmentNumber": 3,
     "name": "Hot Over Here",
     "elementType": "fire",
-    "traitType": "shape",
     "shape": "TORCH_NE"
   },
   {
     "assignmentNumber": 4,
     "name": "80s Boombox",
     "elementType": "fire",
-    "traitType": "shape",
     "shape": "BOMB"
   },
   {
     "assignmentNumber": 5,
     "name": "Hot Flash",
     "elementType": "fire",
-    "traitType": "shape",
     "shape": "FLASH"
   },
   {
     "assignmentNumber": 6,
     "name": "Abstract Fire",
     "elementType": "fire",
-    "traitType": "shape",
     "shape": "ABSTRACT_FIRE"
   },
   {
     "assignmentNumber": 7,
     "name": "Four Triangles",
     "elementType": "fire",
-    "traitType": "shape",
     "shape": "FOUR_TRIANGLES"
   },
   {
     "assignmentNumber": 0,
     "name": "Windy Cloud",
     "elementType": "wind",
-    "traitType": "shape",
     "shape": "WIND_CLOUD"
   },
   {
     "assignmentNumber": 1,
     "name": "Loud Cloud",
     "elementType": "wind",
-    "traitType": "shape",
     "shape": "THUNDER_CLOUD"
   },
   {
     "assignmentNumber": 2,
     "name": "Bright Cloud",
     "elementType": "wind",
-    "traitType": "shape",
     "shape": "SUNNY_CLOUD"
   },
   {
     "assignmentNumber": 3,
     "name": "Wooshy Whirl",
     "elementType": "wind",
-    "traitType": "shape",
     "shape": "TORNADO"
   },
   {
     "assignmentNumber": 4,
     "name": "Square Triangle",
     "elementType": "wind",
-    "traitType": "shape",
     "shape": "TWO_TRIANGLES"
   },
   {
     "assignmentNumber": 5,
     "name": "Blown Away",
     "elementType": "wind",
-    "traitType": "shape",
     "shape": "BLOW"
   },
   {
     "assignmentNumber": 6,
     "name": "Abstract Wind",
     "elementType": "wind",
-    "traitType": "shape",
     "shape": "ABSTRACT_WIND"
   },
   {
     "assignmentNumber": 7,
     "name": "Four Lines",
     "elementType": "wind",
-    "traitType": "shape",
     "shape": "FOUR_LINES"
   }
 ]

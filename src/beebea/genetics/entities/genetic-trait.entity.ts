@@ -1,11 +1,5 @@
 import { AbstractEntity } from 'src/database/entities/abstract.entity';
-import { Column, Unique } from 'typeorm';
-
-export enum GeneticTraitType {
-  COLOR = 'color',
-  SHAPE = 'shape',
-  ANIMATION = 'animation',
-}
+import { Column } from 'typeorm';
 
 export enum GeneticElementType {
   WATER = 'water',
@@ -18,11 +12,6 @@ export enum GeneticElementType {
 
 Genetic traits are broken down into three categories
 COLOR / SHAPE / ANIMATION
-
-The genetic trait will contain the value of one of these items
-e.g traitType: 'color', traitValue: 'FFaaFF'
-e.g traitType: 'shape', traitValue: 'ARROW_NW'
-e.g traitType: 'animation', traitValue: 'RAIN'
 
 The assignment number is directly related to the beebea dna genetic array.
 
@@ -45,7 +34,4 @@ export abstract class GeneticTrait extends AbstractEntity {
 
   @Column({ enum: GeneticElementType, nullable: false })
   elementType!: GeneticElementType;
-
-  @Column({ enum: GeneticTraitType, nullable: false })
-  traitType!: GeneticTraitType;
 }

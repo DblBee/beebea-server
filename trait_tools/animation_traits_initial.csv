@@ -1,17 +1,17 @@
-assignmentNumber,name,elementType,traitType,animation
-0,Umbrella Weather,water,animation,RAIN
-1,Hang Ten,water,animation,WAVES
-2,Coastal Erosion,water,animation,FLOOD
-3,Abstract Water,water,animation,ABSTRACT_WATER
-0,Round Round Go,earth,animation,SPINNING_GLOBE
-1,Walks On The Beach,earth,animation,SUNSET
-2,Best Part Of Waking Up,earth,animation,SUNRISE
-3,Abstract Earth,earth,animation,ABSTRACT_EARTH
-0,The Roof The Roof,fire,animation,FLAMES
-1,Beach Sand,fire,animation,LAVA
-2,WeeWooWeeWoo,fire,animation,CHERRY_LIGHT
-3,Abstract Fire,fire,animation,ABSTRACT_FIRE
-0,Screaming Stratus,wind,animation,MOVING_CLOUD
-1,Thor's Calling Card,wind,animation,FLASHING_LIGHTNING
-2,Swamp Cooler,wind,animation,FAN
-3,Abstract Wind,wind,animation,ABSTRACT_WIND
+assignmentNumber,name,elementType,animation
+0,Umbrella Weather,water,RAIN
+1,Hang Ten,water,WAVES
+2,Coastal Erosion,water,FLOOD
+3,Abstract Water,water,ABSTRACT_WATER
+0,Round Round Go,earth,SPINNING_GLOBE
+1,Walks On The Beach,earth,SUNSET
+2,Best Part Of Waking Up,earth,SUNRISE
+3,Abstract Earth,earth,ABSTRACT_EARTH
+0,The Roof The Roof,fire,FLAMES
+1,Beach Sand,fire,LAVA
+2,WeeWooWeeWoo,fire,CHERRY_LIGHT
+3,Abstract Fire,fire,ABSTRACT_FIRE
+0,Screaming Stratus,wind,MOVING_CLOUD
+1,Thor's Calling Card,wind,FLASHING_LIGHTNING
+2,Swamp Cooler,wind,FAN
+3,Abstract Wind,wind,ABSTRACT_WIND

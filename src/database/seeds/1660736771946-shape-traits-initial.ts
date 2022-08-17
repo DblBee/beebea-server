@@ -34,6 +34,6 @@ export class shapeTraitsInitial1660736771946 implements ISeedingInterface {
 
   public async down(queryRunner: QueryRunner): Promise<void> {
     console.log('Reverting Seeding Shape Traits....');
-    queryRunner.query('DELETE FROM public.shape_trait;');
+    await queryRunner.query('DELETE FROM public.shape_trait;');
   }
 }

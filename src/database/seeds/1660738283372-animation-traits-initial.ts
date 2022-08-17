@@ -34,6 +34,6 @@ export class animationTraitsInitial1660738283372 implements ISeedingInterface {
 
   public async down(queryRunner: QueryRunner): Promise<void> {
     console.log('Reverting Seeding Animation Traits....');
-    queryRunner.query('DELETE FROM public.animation_trait;');
+    await queryRunner.query('DELETE FROM public.animation_trait;');
   }
 }

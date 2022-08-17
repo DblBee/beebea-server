@@ -1,32 +1,14 @@
-import {
-  PrimaryGeneratedColumn,
-  CreateDateColumn,
-  UpdateDateColumn,
-  DeleteDateColumn,
-  Column,
-  JoinColumn,
-  ManyToOne,
-  OneToMany,
-  Entity,
-} from 'typeorm';
+import { AbstractEntity } from 'src/database/entities/abstract.entity';
+import { Column, JoinColumn, ManyToOne, OneToMany, Entity } from 'typeorm';
 import { AnimationTrait } from '../genetics/entities/animation-trait.entity';
 import { ColorTrait } from '../genetics/entities/color-trait.entity';
 import { ShapeTrait } from '../genetics/entities/shape-trait.entity';
 import { BeeBeaChild } from './beebea-child.entity';
 
 @Entity({ name: 'beebea' })
-export class BeeBea {
-  @PrimaryGeneratedColumn()
-  id!: number;
-
-  @CreateDateColumn({ type: 'timestamptz', default: () => 'CURRENT_TIMESTAMP' })
-  createdAt!: Date;
-
-  @UpdateDateColumn({ type: 'timestamptz', default: () => 'CURRENT_TIMESTAMP' })
-  updatedAt!: Date;
-
-  @DeleteDateColumn({ type: 'timestamptz', nullable: true })
-  deletedAt?: Date;
+export class BeeBea extends AbstractEntity {
+  @Column({ type: 'integer', default: () => 'getnextmintnumber()', unique: true })
+  mintNumber!: number;
 
   @Column({ type: 'varchar', nullable: false, length: 128 })
   name!: string;

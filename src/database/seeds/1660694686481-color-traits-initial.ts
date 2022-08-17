@@ -34,6 +34,6 @@ export class colorTraitsInitial1660694686481 implements ISeedingInterface {
 
   public async down(queryRunner: QueryRunner): Promise<void> {
     console.log('Reverting Seeding Color Traits....');
-    queryRunner.query('DELETE FROM public.color_trait;');
+    await queryRunner.query('DELETE FROM public.color_trait;');
   }
 }

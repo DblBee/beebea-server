@@ -20,11 +20,13 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json --runInBand",
     "typeorm:cli": "node -r tsconfig-paths/register -r ts-node/register ./node_modules/typeorm/cli.js",
+    "initialize:create": "npm run typeorm:cli -- migration:create",
+    "initialize:run": "npm run typeorm:cli -- migration:run -d src/database/initialize-datasource.ts",
     "migration:generate": "npm run typeorm:cli -- migration:generate -d src/database/migration-datasource.ts",
     "migration:create": "npm run typeorm:cli -- migration:create",
     "migration:run": "npm run typeorm:cli -- migration:run -d src/database/migration-datasource.ts",
     "migration:revert": "npm run typeorm:cli -- migration:revert -d src/database/migration-datasource.ts",
-    "seed:create": "npm run typeorm:cli -- migration:create",
+    "seed:create": "npm run initialize:create",
     "seed:run": "npm run typeorm:cli -- migration:run -d src/database/seed-datasource.ts",
     "seed:revert": "npm run typeorm:cli -- migration:revert -d src/database/seed-datasource.ts",
     "env:up": "docker-compose up",
@@ -32,7 +34,7 @@
     "env:dbUp": "docker-compose up dev-db pgadmin -d",
     "env:dbStop": "docker-compose stop",
     "env:dbDown": "docker-compose down",
-    "env:refresh": "npm run env:dbDown && npm run env:dbUp && rm -rf src/database/migrations && npm run migration:generate -- src/database/migrations/inital && npm run migration:run && npm run seed:run"
+    "env:refresh": "npm run env:dbDown && npm run env:dbUp && rm -rf src/database/migrations && npm run migration:generate -- src/database/migrations/initial && npm run initialize:run && npm run migration:run && npm run seed:run"
   },
   "dependencies": {
     "@hapi/joi": "^17.1.1",
