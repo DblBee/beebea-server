@@ -1,5 +1,5 @@
 assignmentNumber,name,elementType,traitType,hex,rgb
-0,Squishy Watersocks,water,color,#2ce689,"rgb(44,230,137,255)"
+0,Squishy Water Socks,water,color,#2ce689,"rgb(44,230,137,255)"
 1,Gambit Prince,water,color,#d4fbe8,"rgb(212,251,232,255)"
 2,Minor Frostbite,water,color,#e1f8ff,"rgb(225,248,255,255)"
 3,Sour Shark,water,color,#c7ddff,"rgb(199,221,255,255)"
@@ -26,7 +26,7 @@ assignmentNumber,name,elementType,traitType,hex,rgb
 8,Salty Pawn,fire,color,#fc68c3,"rgb(252,104,195,255)"
 9,Imaginary Panther,fire,color,#e03de0,"rgb(224,61,224,255)"
 10,Selfish Flamingo,fire,color,#ff38ff,"rgb(255,56,255,255)"
-11,Dessert Walker,fire,color,#EBC3B9,"rgb(235,195,185,255)"
+11,Dessert Walker,fire,color,#ebc3b9,"rgb(235,195,185,255)"
 12,Distant Whisper,fire,color,#fff5ff,"rgb(255,245,255,255)"
 13,Boring Grandpa,fire,color,#fff7db,"rgb(255,247,219,255)"
 14,Bad Bat,fire,color,#6800fa,"rgb(104,0,250,255)"

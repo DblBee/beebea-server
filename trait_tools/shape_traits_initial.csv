@@ -1,0 +1,33 @@
+assignmentNumber,name,elementType,traitType,shape
+0,Splendid Wave,water,shape,WAVE
+1,Nautical Flag,water,shape,HORZ_TWO_TONE
+2,Clean Machine,water,shape,BUBBLES
+3,Summer Storm,water,shape,RAIN
+4,Row Row,water,shape,BOAT
+5,Smarty Splash,water,shape,SPLASH
+6,Abstract Water,water,shape,ABSTRACT_WATER
+7,Four Squares,water,shape,FOUR_SQUARES
+0,Grunge Arrow,earth,shape,ARROW_NW
+1,Gnarly Arrow,earth,shape,ARROW_SW
+2,Wicked Arrow,earth,shape,ARROW_NE
+3,Sweet Tea Arrow,earth,shape,ARROW_SE
+4,Elder Tree,earth,shape,TREE
+5,Splish Splash,earth,shape,SMASH
+6,Abstract Earth,earth,shape,ABSTRACT_EARTH
+7,Four Circles,earth,shape,FOUR_CIRCLES
+0,Flashy Flame,fire,shape,FLAME
+1,Jolly Roger,fire,shape,CAMP_FIRE
+2,Hot Over There,fire,shape,TORCH_NW
+3,Hot Over Here,fire,shape,TORCH_NE
+4,80s Boombox,fire,shape,BOMB
+5,Hot Flash,fire,shape,FLASH
+6,Abstract Fire,fire,shape,ABSTRACT_FIRE
+7,Four Triangles,fire,shape,FOUR_TRIANGLES
+0,Windy Cloud,wind,shape,WIND_CLOUD
+1,Loud Cloud,wind,shape,THUNDER_CLOUD
+2,Bright Cloud,wind,shape,SUNNY_CLOUD
+3,Wooshy Whirl,wind,shape,TORNADO
+4,Square Triangle,wind,shape,TWO_TRIANGLES
+5,Blown Away,wind,shape,BLOW
+6,Abstract Wind,wind,shape,ABSTRACT_WIND
+7,Four Lines,wind,shape,FOUR_LINES

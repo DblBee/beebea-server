@@ -1,7 +1,7 @@
 [
   {
     "assignmentNumber": 0,
-    "name": "Squishy Watersocks",
+    "name": "Squishy Water Socks",
     "elementType": "water",
     "traitType": "color",
     "hex": "#2ce689",
@@ -220,7 +220,7 @@
     "name": "Dessert Walker",
     "elementType": "fire",
     "traitType": "color",
-    "hex": "#EBC3B9",
+    "hex": "#ebc3b9",
     "rgb": "rgb(235,195,185,255)"
   },
   {
