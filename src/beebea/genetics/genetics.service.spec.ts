@@ -7,6 +7,12 @@ import { validate } from 'class-validator';
 import { GeneticsService } from './genetics.service';
 import { DnaDto } from './dtos/dna.dto';
 import { CreepyNameDto } from './dtos/creepy-name.dto';
+import { ColorTrait } from './entities/color-trait.entity';
+import { getRepositoryToken } from '@nestjs/typeorm';
+import { TestingUtilityService } from 'src/testing-utility/testing-utility.service';
+import { AnimationTrait } from './entities/animation-trait.entity';
+import { ShapeTrait } from './entities/shape-trait.entity';
+import { GeneticElementType } from './entities/genetic-trait.entity';
 
 describe('GeneticsService', () => {
   let service: GeneticsService;
@@ -14,7 +20,21 @@ describe('GeneticsService', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       imports: [LoggerModule.forRoot({ pinoHttp: { enabled: false } })],
-      providers: [GeneticsService],
+      providers: [
+        GeneticsService,
+        {
+          provide: getRepositoryToken(ColorTrait),
+          useValue: TestingUtilityService.createMockRepository<ColorTrait>(),
+        },
+        {
+          provide: getRepositoryToken(ShapeTrait),
+          useValue: TestingUtilityService.createMockRepository<ShapeTrait>(),
+        },
+        {
+          provide: getRepositoryToken(AnimationTrait),
+          useValue: TestingUtilityService.createMockRepository<AnimationTrait>(),
+        },
+      ],
     }).compile();
 
     service = module.get<GeneticsService>(GeneticsService);
@@ -56,8 +76,37 @@ describe('GeneticsService', () => {
         expect(dnaDto).toBeDefined();
         expect(dnaDto).toBeInstanceOf(DnaDto);
         expect(dnaDto.hex).toEqual(dnaStr.substring(2));
-        expect(dnaDto.valueArray).toBeDefined();
-        expect(dnaDto.valueArray.length).toEqual(48);
+        expect(dnaDto.colorValueArray).toBeDefined();
+        expect(dnaDto.colorValueArray.length).toEqual(32);
+        expect(dnaDto.shapeValueArray).toBeDefined();
+        expect(dnaDto.shapeValueArray.length).toEqual(8);
+        expect(dnaDto.animationValueArray).toBeDefined();
+        expect(dnaDto.animationValueArray.length).toEqual(4);
+        expect(dnaDto.hiddenValueArray).toBeDefined();
+        expect(dnaDto.hiddenValueArray.length).toEqual(4);
+      });
+    });
+  });
+
+  describe('getGeneticElementType', () => {
+    describe('generate random genetic element', () => {
+      it('returns a random genetic element', () => {
+        const selectedElements = [];
+        const primaryElementType = GeneticElementType.FIRE;
+
+        for (let i = 0; i < 1000; i++) {
+          const selectedElementType = service.getGeneticElementType(primaryElementType);
+
+          selectedElements.push(selectedElementType);
+          expect(selectedElementType).toBeDefined();
+        }
+
+        console.log(
+          'selectedElements - primary',
+          selectedElements.filter((elm: GeneticElementType) => {
+            return elm == primaryElementType;
+          }).length,
+        );
       });
     });
   });

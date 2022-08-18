@@ -1,3 +1,4 @@
+import { Exclude } from 'class-transformer';
 import { AbstractEntity } from 'src/database/entities/abstract.entity';
 import { Column } from 'typeorm';
 
@@ -27,6 +28,7 @@ export abstract class GeneticTrait extends AbstractEntity {
   // the assignment number is directly related to the beebea dna genetic array.
   // the combination of genetic type and assignment number determines what the trait is and assigned
   @Column({ type: 'int', nullable: false })
+  @Exclude()
   assignmentNumber!: number;
 
   @Column({ type: 'varchar', nullable: false, length: 128 })

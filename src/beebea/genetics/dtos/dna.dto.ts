@@ -6,5 +6,17 @@ export class DnaDto {
 
   @IsInt({ each: true })
   @ArrayNotEmpty()
-  valueArray!: number[];
+  colorValueArray!: number[];
+
+  @IsInt({ each: true })
+  @ArrayNotEmpty()
+  shapeValueArray!: number[];
+
+  @IsInt({ each: true })
+  @ArrayNotEmpty()
+  animationValueArray!: number[];
+
+  @IsInt({ each: true })
+  @ArrayNotEmpty()
+  hiddenValueArray!: number[];
 }

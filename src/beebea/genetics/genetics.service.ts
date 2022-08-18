@@ -1,15 +1,27 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
 import { InjectPinoLogger, PinoLogger } from 'nestjs-pino';
 import { Keccak } from 'sha3';
+import { Repository } from 'typeorm';
 import { Creepify, CreepifyOptions } from './creepy-generator';
 import { CreepyNameDto } from './dtos/creepy-name.dto';
 import { DnaDto } from './dtos/dna.dto';
+import { AnimationTrait } from './entities/animation-trait.entity';
+import { ColorTrait } from './entities/color-trait.entity';
+import { GeneticElementType } from './entities/genetic-trait.entity';
+import { ShapeTrait } from './entities/shape-trait.entity';
 
 @Injectable()
 export class GeneticsService {
   constructor(
     @InjectPinoLogger(GeneticsService.name)
     private readonly _logger: PinoLogger,
+    @InjectRepository(ColorTrait)
+    private readonly _colorTraitRepository: Repository<ColorTrait>,
+    @InjectRepository(ShapeTrait)
+    private readonly _shapeTraitRepository: Repository<ShapeTrait>,
+    @InjectRepository(AnimationTrait)
+    private readonly _animationTraitRepository: Repository<AnimationTrait>,
   ) {}
 
   private _generateRandomDna(inputValue: string): string {
@@ -28,6 +40,26 @@ export class GeneticsService {
       result.unshift(buffer[i].toString(2).padStart(8, '0'));
     }
     return result.join('');
+  }
+
+  private _getNonPrimaryElementTypes(primaryElementType: GeneticElementType): GeneticElementType[] {
+    switch (primaryElementType) {
+      case GeneticElementType.EARTH:
+        return [GeneticElementType.FIRE, GeneticElementType.WATER, GeneticElementType.WIND];
+      case GeneticElementType.FIRE:
+        return [GeneticElementType.EARTH, GeneticElementType.WATER, GeneticElementType.WIND];
+      case GeneticElementType.WATER:
+        return [GeneticElementType.FIRE, GeneticElementType.EARTH, GeneticElementType.WIND];
+      case GeneticElementType.WIND:
+        return [GeneticElementType.FIRE, GeneticElementType.WATER, GeneticElementType.EARTH];
+      default:
+        return [
+          GeneticElementType.FIRE,
+          GeneticElementType.WATER,
+          GeneticElementType.EARTH,
+          GeneticElementType.WIND,
+        ];
+    }
   }
 
   generateDna(inputValue: string): string {
@@ -52,27 +84,139 @@ export class GeneticsService {
     // segment the 240 bit string array by 5 characters
     const dnaArray = bit240.match(/.{1,5}/g);
 
-    const bit240BitArray: number[] = [];
+    const colorTraitValueArray: number[] = [];
+    const shapeTraitValueArray: number[] = [];
+    const animationTraitValueArray: number[] = [];
+    const hiddenTraitValueArray: number[] = [];
 
     // store each bit value in a number array. these numbers
     // will associate to the genetic trait in the db
     if (dnaArray) {
-      dnaArray.forEach((dnaSeg) => {
+      dnaArray.forEach((dnaSeg: string, idx: number) => {
         const bit240Val = parseInt(dnaSeg.substring(0, 4), 2);
 
-        // add the new bit number to the array
-        bit240BitArray.push(bit240Val);
+        const currentIdx = idx + 1;
+
+        if (currentIdx <= 32) {
+          colorTraitValueArray.push(bit240Val);
+        }
+
+        if (currentIdx > 32 && currentIdx <= 40) {
+          shapeTraitValueArray.push(bit240Val);
+        }
+
+        if (currentIdx > 40 && currentIdx <= 44) {
+          animationTraitValueArray.push(bit240Val);
+        }
+
+        if (currentIdx > 44) {
+          hiddenTraitValueArray.push(bit240Val);
+        }
       });
     }
 
     const dnaDto: DnaDto = {
       hex: hashHex,
-      valueArray: bit240BitArray,
+      colorValueArray: colorTraitValueArray,
+      shapeValueArray: shapeTraitValueArray,
+      animationValueArray: animationTraitValueArray,
+      hiddenValueArray: hiddenTraitValueArray,
     };
 
     this._logger.info(`processDna(${hashHex}) ${dnaDto}`);
 
     return dnaDto;
+  }
+
+  getGeneticElementType(primaryElementType: GeneticElementType): GeneticElementType {
+    // we need to return an element type that can be used to select the ColorTrait
+    // based on assignmentNumber and elementType
+
+    // create an array [100] of the 4 element types.
+    // weight the primary element type 30%
+    // all other element types will weigh 20% each
+    const nonPrimaryElementTypes = this._getNonPrimaryElementTypes(primaryElementType);
+    const primaryElementTypeArray = Array.from({ length: 340 }, () => primaryElementType);
+    const other1ElementTypeArray = Array.from({ length: 220 }, () => nonPrimaryElementTypes[0]);
+    const other2ElementTypeArray = Array.from({ length: 220 }, () => nonPrimaryElementTypes[1]);
+    const other3ElementTypeArray = Array.from({ length: 220 }, () => nonPrimaryElementTypes[2]);
+
+    let elementTypeArray: GeneticElementType[] = [
+      ...primaryElementTypeArray,
+      ...other1ElementTypeArray,
+      ...other2ElementTypeArray,
+      ...other3ElementTypeArray,
+    ];
+
+    elementTypeArray = elementTypeArray.sort(() => Math.random() - 0.5);
+
+    const random = Math.floor(Math.random() * elementTypeArray.length);
+
+    // console.log('elementTypeArray', elementTypeArray.length);
+
+    // console.log('elementTypeArray[random]', random, elementTypeArray[random]);
+
+    return elementTypeArray[random];
+  }
+
+  async getColorTrait(
+    elementType: GeneticElementType,
+    assignmentNumber: number,
+  ): Promise<ColorTrait> {
+    const colorTrait = await this._colorTraitRepository.findOne({
+      where: {
+        assignmentNumber,
+        elementType,
+      },
+    });
+
+    if (colorTrait) {
+      return colorTrait;
+    }
+
+    throw new Error(
+      'getColorTrait - Trait was not found. A trait must be found from the assignmentNumber',
+    );
+  }
+
+  async getShapeTrait(
+    elementType: GeneticElementType,
+    assignmentNumber: number,
+  ): Promise<ShapeTrait> {
+    const colorTrait = await this._shapeTraitRepository.findOne({
+      where: {
+        assignmentNumber: Math.floor(assignmentNumber / 2),
+        elementType,
+      },
+    });
+
+    if (colorTrait) {
+      return colorTrait;
+    }
+
+    throw new Error(
+      'getShapeTrait - Trait was not found. A trait must be found from the assignmentNumber',
+    );
+  }
+
+  async getAnimationTrait(
+    elementType: GeneticElementType,
+    assignmentNumber: number,
+  ): Promise<AnimationTrait> {
+    const colorTrait = await this._animationTraitRepository.findOne({
+      where: {
+        assignmentNumber: Math.floor(assignmentNumber / 4),
+        elementType,
+      },
+    });
+
+    if (colorTrait) {
+      return colorTrait;
+    }
+
+    throw new Error(
+      'getAnimationTrait - Trait was not found. A trait must be found from the assignmentNumber',
+    );
   }
 
   generateCreepyName(name: string, options?: CreepifyOptions): CreepyNameDto {

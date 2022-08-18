@@ -33,40 +33,40 @@ export class BeeBea extends AbstractEntity {
   dna!: string;
 
   @ManyToOne(() => ColorTrait)
-  colorTrait1!: ColorTrait;
+  primaryColorTrait!: ColorTrait;
 
   @ManyToOne(() => ColorTrait)
-  colorTrait2!: ColorTrait;
+  secondaryColorTrait!: ColorTrait;
 
   @ManyToOne(() => ColorTrait)
-  colorTrait3!: ColorTrait;
+  accentColorTrait!: ColorTrait;
 
   @ManyToOne(() => ColorTrait)
-  colorTrait4!: ColorTrait;
+  highlightColorTrait!: ColorTrait;
 
   @ManyToOne(() => ColorTrait)
-  colorTrait5!: ColorTrait;
+  complementaryColorTrait!: ColorTrait;
 
   @ManyToOne(() => ColorTrait)
-  colorTrait6!: ColorTrait;
+  polymericColorTrait!: ColorTrait;
 
   @ManyToOne(() => ColorTrait)
-  colorTrait7!: ColorTrait;
+  environmentalColorTrait!: ColorTrait;
 
   @ManyToOne(() => ColorTrait)
-  colorTrait8!: ColorTrait;
+  recessiveColorTrait!: ColorTrait;
 
   @ManyToOne(() => ShapeTrait)
-  shapeTrait1!: ShapeTrait;
+  primaryShapeTrait!: ShapeTrait;
 
   @ManyToOne(() => ShapeTrait)
-  shapeTrait2!: ShapeTrait;
+  secondaryShapeTrait!: ShapeTrait;
 
   @ManyToOne(() => AnimationTrait)
-  animation1!: AnimationTrait;
+  primaryAnimationTrait!: AnimationTrait;
 
-  @ManyToOne(() => AnimationTrait)
-  hiddenTrait!: AnimationTrait;
+  @ManyToOne(() => ColorTrait)
+  hiddenTrait?: ColorTrait;
 
   @Column({ type: 'text', nullable: true })
   bio?: string;

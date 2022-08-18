@@ -14,7 +14,7 @@ export const pinoHttpOptions = {
       colorize: true,
       levelFirst: true,
       hideObject: true,
-      translateTime: 'SYS:standard',
+      translateTime: 'UTC:yyyy-mm-dd HH:MM:ss.l o',
       messageFormat: `{context} - {msg}`,
     } as PrettyOptions,
   },

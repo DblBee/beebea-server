@@ -1,10 +1,11 @@
 import { Module } from '@nestjs/common';
 import * as Joi from '@hapi/joi';
-import { AppLoggerModule } from './app-logger/app-logger.module';
 import { WebModule } from './web/web.module';
 import { DatabaseModule } from './database/database.module';
-import { ConfigModule } from '@nestjs/config';
-import { BeebeaModule } from './beebea/beebea.module';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { BeeBeaModule } from './beebea/beebea.module';
+import { LoggerModule } from 'nestjs-pino';
+import { pinoHttpOptions } from './logger/pino-http.config';
 
 @Module({
   imports: [
@@ -17,10 +18,21 @@ import { BeebeaModule } from './beebea/beebea.module';
       }),
       isGlobal: true,
     }),
-    AppLoggerModule,
+    LoggerModule.forRootAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: async (configSerivce: ConfigService) => {
+        return {
+          pinoHttp: {
+            ...pinoHttpOptions,
+            level: configSerivce.get<string>('LOG_LEVEL', 'trace'),
+          },
+        };
+      },
+    }),
     DatabaseModule,
     WebModule,
-    BeebeaModule,
+    BeeBeaModule,
   ],
 })
 export class AppModule {}
