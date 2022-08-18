@@ -6,6 +6,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { BeeBeaModule } from './beebea/beebea.module';
 import { LoggerModule } from 'nestjs-pino';
 import { pinoHttpOptions } from './logger/pino-http.config';
+import { ImageGenerator } from './genetics/image-generator';
 
 @Module({
   imports: [
@@ -34,5 +35,6 @@ import { pinoHttpOptions } from './logger/pino-http.config';
     WebModule,
     BeeBeaModule,
   ],
+  providers: [ImageGenerator],
 })
 export class AppModule {}

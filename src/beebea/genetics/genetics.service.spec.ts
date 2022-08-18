@@ -89,25 +89,26 @@ describe('GeneticsService', () => {
   });
 
   describe('getGeneticElementType', () => {
-    describe('generate random genetic element', () => {
-      it('returns a random genetic element', () => {
-        const selectedElements = [];
-        const primaryElementType = GeneticElementType.FIRE;
+    it('returns a random genetic element', () => {
+      const selectedElements = [];
+      const primaryElementType = GeneticElementType.FIRE;
 
-        for (let i = 0; i < 1000; i++) {
-          const selectedElementType = service.getGeneticElementType(primaryElementType);
+      for (let i = 0; i < 1000; i++) {
+        const selectedElementType = service.getGeneticElementType(primaryElementType);
 
-          selectedElements.push(selectedElementType);
-          expect(selectedElementType).toBeDefined();
-        }
+        selectedElements.push(selectedElementType);
+        expect(selectedElementType).toBeDefined();
+      }
 
-        // console.log(
-        //   'selectedElements - primary',
-        //   selectedElements.filter((elm: GeneticElementType) => {
-        //     return elm == primaryElementType;
-        //   }).length,
-        // );
-      });
+      //check to see if the primary element was selected within the 30% +- threshold of +-5
+      const numberOfPrimaryElementsSelected = selectedElements.filter((elm: GeneticElementType) => {
+        return elm == primaryElementType;
+      }).length;
+
+      const selectedPercentThreshold = Math.floor((numberOfPrimaryElementsSelected / 1000) * 100);
+
+      expect(selectedPercentThreshold).toBeGreaterThan(24);
+      expect(selectedPercentThreshold).toBeLessThan(36);
     });
   });
 

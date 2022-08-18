@@ -42,26 +42,6 @@ export class GeneticsService {
     return result.join('');
   }
 
-  private _getNonPrimaryElementTypes(primaryElementType: GeneticElementType): GeneticElementType[] {
-    switch (primaryElementType) {
-      case GeneticElementType.EARTH:
-        return [GeneticElementType.FIRE, GeneticElementType.WATER, GeneticElementType.WIND];
-      case GeneticElementType.FIRE:
-        return [GeneticElementType.EARTH, GeneticElementType.WATER, GeneticElementType.WIND];
-      case GeneticElementType.WATER:
-        return [GeneticElementType.FIRE, GeneticElementType.EARTH, GeneticElementType.WIND];
-      case GeneticElementType.WIND:
-        return [GeneticElementType.FIRE, GeneticElementType.WATER, GeneticElementType.EARTH];
-      default:
-        return [
-          GeneticElementType.FIRE,
-          GeneticElementType.WATER,
-          GeneticElementType.EARTH,
-          GeneticElementType.WIND,
-        ];
-    }
-  }
-
   generateDna(inputValue: string): string {
     const dna = this._generateRandomDna(inputValue);
 
@@ -132,10 +112,17 @@ export class GeneticsService {
     // we need to return an element type that can be used to select the ColorTrait
     // based on assignmentNumber and elementType
 
-    // create an array [100] of the 4 element types.
-    // weight the primary element type 30%
-    // all other element types will weigh 20% each
-    const nonPrimaryElementTypes = this._getNonPrimaryElementTypes(primaryElementType);
+    const elementArray = [
+      GeneticElementType.EARTH,
+      GeneticElementType.FIRE,
+      GeneticElementType.WATER,
+      GeneticElementType.WIND,
+    ];
+
+    // create an array [1000] of the 4 element types.
+    // weight the primary element type 34%
+    // all other element types will weigh 22% each
+    const nonPrimaryElementTypes = elementArray.filter((elType) => elType != primaryElementType);
     const primaryElementTypeArray = Array.from({ length: 340 }, () => primaryElementType);
     const other1ElementTypeArray = Array.from({ length: 220 }, () => nonPrimaryElementTypes[0]);
     const other2ElementTypeArray = Array.from({ length: 220 }, () => nonPrimaryElementTypes[1]);
@@ -148,14 +135,13 @@ export class GeneticsService {
       ...other3ElementTypeArray,
     ];
 
+    // shuffle the array to make things spicy
     elementTypeArray = elementTypeArray.sort(() => Math.random() - 0.5);
 
+    // get the random index for the element type
     const random = Math.floor(Math.random() * elementTypeArray.length);
 
-    // console.log('elementTypeArray', elementTypeArray.length);
-
-    // console.log('elementTypeArray[random]', random, elementTypeArray[random]);
-
+    // return the randomly selected element type
     return elementTypeArray[random];
   }
 
