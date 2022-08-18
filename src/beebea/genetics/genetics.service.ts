@@ -169,6 +169,7 @@ export class GeneticsService {
     elementType: GeneticElementType,
     assignmentNumber: number,
   ): Promise<ShapeTrait> {
+    // there are only 8 shapes per element so divide the assignment number by 2
     const colorTrait = await this._shapeTraitRepository.findOne({
       where: {
         assignmentNumber: Math.floor(assignmentNumber / 2),
@@ -189,6 +190,7 @@ export class GeneticsService {
     elementType: GeneticElementType,
     assignmentNumber: number,
   ): Promise<AnimationTrait> {
+    // there are only 4 animations per element so divide the assignment number by 4
     const colorTrait = await this._animationTraitRepository.findOne({
       where: {
         assignmentNumber: Math.floor(assignmentNumber / 4),

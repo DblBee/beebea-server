@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import { randomUUID } from 'crypto';
 import * as fs from 'fs';
 import { getPixels, savePixels } from 'ndarray-pixels';
 import { BeeBea } from 'src/beebea/entities/beebea.entity';
@@ -181,7 +180,7 @@ export class ImageGenerator {
   }
 
   async generate(beebea: BeeBea): Promise<string> {
-    const bufferIn = fs.readFileSync('src/images/base/baseBeeBeaImage.png');
+    const bufferIn = fs.readFileSync('src/images/base/BASE.png');
     const pixels = await getPixels(bufferIn, 'image/png');
     const pixelData = this._getPixelData(beebea);
     pixels.data = pixelData;
