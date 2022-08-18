@@ -34,7 +34,8 @@
     "env:dbUp": "docker-compose up dev-db pgadmin -d",
     "env:dbStop": "docker-compose stop",
     "env:dbDown": "docker-compose down",
-    "env:refresh": "npm run env:dbDown && npm run env:dbUp && rm -rf src/database/migrations && npm run migration:generate -- src/database/migrations/initial && npm run initialize:run && npm run migration:run && npm run seed:run"
+    "env:refresh": "npm run env:dbDown && npm run env:dbUp && rm -rf src/database/migrations && npm run migration:generate -- src/database/migrations/initial && npm run initialize:run && npm run migration:run && npm run seed:run",
+    "tsNode": "node -r tsconfig-paths/register -r ts-node/register"
   },
   "dependencies": {
     "@hapi/joi": "^17.1.1",
