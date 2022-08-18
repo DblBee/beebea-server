@@ -4,6 +4,9 @@ import { LoggerModule } from 'nestjs-pino';
 import { TestingUtilityService } from 'src/testing-utility/testing-utility.service';
 import { BeeBeaService } from './beebea.service';
 import { BeeBea } from './entities/beebea.entity';
+import { AnimationTrait } from './genetics/entities/animation-trait.entity';
+import { ColorTrait } from './genetics/entities/color-trait.entity';
+import { ShapeTrait } from './genetics/entities/shape-trait.entity';
 import { GeneticsService } from './genetics/genetics.service';
 
 describe('BeeBeaService', () => {
@@ -18,6 +21,18 @@ describe('BeeBeaService', () => {
         {
           provide: getRepositoryToken(BeeBea),
           useValue: TestingUtilityService.createMockRepository<BeeBea>(),
+        },
+        {
+          provide: getRepositoryToken(ColorTrait),
+          useValue: TestingUtilityService.createMockRepository<ColorTrait>(),
+        },
+        {
+          provide: getRepositoryToken(ShapeTrait),
+          useValue: TestingUtilityService.createMockRepository<ShapeTrait>(),
+        },
+        {
+          provide: getRepositoryToken(AnimationTrait),
+          useValue: TestingUtilityService.createMockRepository<AnimationTrait>(),
         },
       ],
     }).compile();

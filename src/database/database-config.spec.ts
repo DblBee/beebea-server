@@ -1,6 +1,7 @@
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { Test, TestingModule } from '@nestjs/testing';
 import { TestAppDataSource } from './e2e-datasource';
+import { InitializeDataSource } from './initialize-datasource';
 import { MigrationDataSource } from './migration-datasource';
 import { SeedDataSource } from './seed-datasource';
 import TypeOrmConfig from './typeorm.config';
@@ -41,6 +42,13 @@ describe('Database Config', () => {
   describe('seed-datasource', () => {
     it('should be defined', () => {
       const dataSource = SeedDataSource;
+      expect(dataSource).toBeDefined();
+    });
+  });
+
+  describe('initialize-datasource', () => {
+    it('should be defined', () => {
+      const dataSource = InitializeDataSource;
       expect(dataSource).toBeDefined();
     });
   });

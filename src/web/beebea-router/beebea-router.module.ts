@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
 import { BeeBeaModule } from 'src/beebea/beebea.module';
-import { BeebeaRouterController } from './beebea-router.controller';
+import { BeeBeaRouterController } from './beebea-router.controller';
 
 @Module({
   imports: [BeeBeaModule],
   providers: [],
-  controllers: [BeebeaRouterController],
+  controllers: [BeeBeaRouterController],
 })
-export class BeebeaRouterModule {}
+export class BeeBeaRouterModule {}

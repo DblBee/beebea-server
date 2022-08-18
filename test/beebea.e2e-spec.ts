@@ -7,7 +7,7 @@ import { BeeBeaModule } from 'src/beebea/beebea.module';
 import { BeeBeaService } from 'src/beebea/beebea.service';
 import { TestingUtilityModule } from 'src/testing-utility/testing-utility.module';
 import { GeneticElementType } from 'src/beebea/genetics/entities/genetic-trait.entity';
-import { AppLoggerModule } from 'src/app-logger/app-logger.module';
+import { LoggerModule } from 'nestjs-pino';
 
 describe('BeeBeaService (e2e)', () => {
   let app: INestApplication;
@@ -17,8 +17,8 @@ describe('BeeBeaService (e2e)', () => {
     const module: TestingModule = await Test.createTestingModule({
       imports: [
         TypeOrmModule.forRoot(testDataSourceOptions),
+        LoggerModule.forRoot(),
         ConfigModule,
-        AppLoggerModule,
         BeeBeaModule,
         TestingUtilityModule,
       ],

@@ -101,12 +101,12 @@ describe('GeneticsService', () => {
           expect(selectedElementType).toBeDefined();
         }
 
-        console.log(
-          'selectedElements - primary',
-          selectedElements.filter((elm: GeneticElementType) => {
-            return elm == primaryElementType;
-          }).length,
-        );
+        // console.log(
+        //   'selectedElements - primary',
+        //   selectedElements.filter((elm: GeneticElementType) => {
+        //     return elm == primaryElementType;
+        //   }).length,
+        // );
       });
     });
   });

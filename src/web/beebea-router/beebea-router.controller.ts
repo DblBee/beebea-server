@@ -3,9 +3,9 @@ import { InjectPinoLogger, PinoLogger } from 'nestjs-pino';
 import { BeeBeaService } from 'src/beebea/beebea.service';
 
 @Controller('beebea')
-export class BeebeaRouterController {
+export class BeeBeaRouterController {
   constructor(
-    @InjectPinoLogger(BeebeaRouterController.name)
+    @InjectPinoLogger(BeeBeaRouterController.name)
     private readonly _logger: PinoLogger,
     private readonly _beebeaService: BeeBeaService,
   ) {}

@@ -95,13 +95,15 @@
       "../test",
       "<rootDir>/testing-utility/",
       "<rootDir>/database/migrations",
-      "<rootDir>/database/seeds"
+      "<rootDir>/database/seeds",
+      "<rootDir>/database/initialize"
     ],
     "modulePathIgnorePatterns": [
       "../test",
       "<rootDir>/testing-utility/",
       "<rootDir>/database/migrations",
-      "<rootDir>/database/seeds"
+      "<rootDir>/database/seeds",
+      "<rootDir>/database/initialize"
     ],
     "rootDir": "src",
     "testRegex": ".*\\.spec\\.ts$",
