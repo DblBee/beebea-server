@@ -18,8 +18,6 @@ services:
       - net-dev
     ports:
       - 3000:3000
-    depends_on:
-      - beebea-postgres-dev
     environment:
       - POSTGRES_HOST=dev-db
       - POSTGRES_PORT=5432
