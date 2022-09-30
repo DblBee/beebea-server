@@ -6,7 +6,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { BeeBeaModule } from './beebea/beebea.module';
 import { LoggerModule } from 'nestjs-pino';
 import { pinoHttpOptions } from './logger/pino-http.config';
-import { ImageGenerator } from './genetics/image-generator';
+import { ImageGenerator } from './beebea/genetics/providers/image-generator.provider';
 
 @Module({
   imports: [
@@ -23,6 +23,7 @@ import { ImageGenerator } from './genetics/image-generator';
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: async (configSerivce: ConfigService) => {
+        console.log('pinoHttpOptions', pinoHttpOptions);
         return {
           pinoHttp: {
             ...pinoHttpOptions,

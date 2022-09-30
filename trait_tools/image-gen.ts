@@ -167,6 +167,7 @@ const pixelArtColors = {
   recessive: '255,255,255,255',
   empty: '0,0,0,255',
 };
+
 const _getRGBNumericValueObject = (geneticTrait: ColorTrait): RGBNumericDto => {
   const matchColors = /rgb\((\d{1,3}),(\d{1,3}),(\d{1,3}),(\d{1,3})\)/;
 

@@ -1,5 +1,7 @@
 // import { TinyColor, random } from '@ctrl/tinycolor';
 import axios from 'axios';
+import * as fs from 'fs';
+import path from 'path';
 import colorPaletteJson from './color-palettes.json';
 
 // const tc = new TinyColor('#FCB934');
@@ -49,10 +51,13 @@ paletteArray.forEach((palette) => {
     colorPalettes.push(colorPalette);
   }
 });
+
 const sleep = (ms: number) => {
   return new Promise((resolve) => setTimeout(resolve, ms));
 };
+
 let i = 0;
+
 const getColorPaletteFromAPI = async (nextId = 'B07gp8c93sH') => {
   const apiUrl = `https://colors.dopely.top/api/palettes/${nextId}/`;
   const res = await axios(apiUrl);
@@ -76,7 +81,55 @@ const getColorPaletteFromAPI = async (nextId = 'B07gp8c93sH') => {
   }
 };
 
-getColorPaletteFromAPI().then(() => {
-  console.log(colorPalettes.length);
-  console.log(colorPalettes);
-});
+// getColorPaletteFromAPI().then(() => {
+//   console.log(colorPalettes.length);
+//   console.log(colorPalettes);
+// });
+
+const textColors: any[] = [];
+const textColorHexs: any[] = [];
+
+type textColorType = {
+  text_color_name: any;
+  text_color: any;
+  background_color_name: any;
+  background_color: any;
+};
+
+const getTextColorsFromApi = async (pageNumber = 1) => {
+  const apiUrl = `https://colors.dopely.top/api/text_colors/?page=${pageNumber}`;
+  const res = await axios(apiUrl);
+  res.data.results.forEach((textColor: textColorType) => {
+    const textColorDef = {
+      name: textColor.text_color_name,
+      hex: textColor.text_color,
+    };
+    if (!textColorHexs.includes(textColorDef.hex)) {
+      textColors.push(textColorDef);
+      textColorHexs.push(textColorDef.hex);
+    }
+    const bgColorDef = {
+      name: textColor.background_color_name,
+      hex: textColor.background_color,
+    };
+    if (!textColorHexs.includes(bgColorDef.hex)) {
+      textColors.push(bgColorDef);
+      textColorHexs.push(bgColorDef.hex);
+    }
+  });
+};
+
+const promises: Promise<void>[] = [];
+
+for (let i = 1; i <= 750; i++) {
+  promises.push(getTextColorsFromApi(i));
+}
+
+Promise.all(promises)
+  .then(() => {
+    const textColorPath = `trait_tools/textColors.json`;
+    fs.writeFileSync(textColorPath, JSON.stringify(textColors));
+  })
+  .catch((err) => {
+    console.log(err);
+  });
